@@ -48,7 +48,7 @@ def get_detail(url):
 
 # 保存
 def save_json(dct):
-    with open("gushiwen.json", "w", encoding="utf-8") as f:
+    with open("nameproj/gushiwen1.json", "w", encoding="utf-8") as f:
         f.write(json.dumps(dct, ensure_ascii=False, indent="\t"))
 
 
@@ -59,6 +59,9 @@ if __name__ == '__main__':
     urls = {
         "诗经": "https://so.gushiwen.org/gushi/shijing.aspx",
         "楚辞": "https://so.gushiwen.org/gushi/chuci.aspx",
+        "唐诗": "https://so.gushiwen.cn/gushi/tangshi.aspx",
+        "宋词": "https://so.gushiwen.cn/gushi/songsan.aspx",
+        "乐府": "https://so.gushiwen.cn/gushi/yuefu.aspx",
     }
 
     dct = {}
@@ -67,7 +70,7 @@ if __name__ == '__main__':
         links = get_list(value)
         lst = []
         for link in links:
-            print("get link: %s"% link)
+            print("get link of %s: %s"% (key, link))
             lst.append(get_detail(link))
         dct[key]= lst
 
